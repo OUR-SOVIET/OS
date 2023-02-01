@@ -577,6 +577,7 @@ Test_SPI_SETDESKWALLPAPER(void)
     UNICODE_STRING ustrOld, ustrNew;
     WCHAR szOld[MAX_PATH];
     WCHAR szNew[MAX_PATH];
+    size_t len;
 
     /* Get old Wallpaper */
     TEST(NtUserSystemParametersInfo(SPI_GETDESKWALLPAPER, MAX_PATH, szOld, 0) == 1);
@@ -599,19 +600,24 @@ Test_SPI_SETDESKWALLPAPER(void)
     TEST(wcscmp(szNew, szOld) == 0);
 
     /* Set new Wallpaper */
-#if 0 // This is broken
-    RtlInitUnicodeString(&ustrNew, L"test.bmp");
-    TEST(NtUserSystemParametersInfo(SPI_SETDESKWALLPAPER, 0, &ustrNew, 0) == 1);
+    GetModuleFileNameW(NULL, szNew, _countof(szNew));
+    wcsrchr(szNew, L'\\')[1] = 0;
+    len = wcslen(szNew);
+    wcscat(szNew, L"test.bmp");
+    RtlInitUnicodeString(&ustrNew, szNew);
+    ok_int(NtUserSystemParametersInfo(SPI_SETDESKWALLPAPER, 0, &ustrNew, 0), 1);
     TEST(NtUserSystemParametersInfo(SPI_GETDESKWALLPAPER, MAX_PATH, szNew, 0) == 1);
-    TEST(wcscmp(szNew, L"test.bmp") == 0);
-#endif
+    TEST(wcscmp(szNew + len, L"test.bmp") == 0);
+    memcpy(szOld, szNew, sizeof(szOld));
 
     /* Get Wallpaper, too small buffer  */
-    szNew[0] = 0; szNew[1] = 0; szNew[2] = 0;
+    memset(szNew, 0, sizeof(szNew));
     TEST(NtUserSystemParametersInfo(SPI_GETDESKWALLPAPER, 3, szNew, 0) == 1);
-    TEST(szNew[0] != 0);
-    TEST(szNew[1] != 0);
-    TEST(szNew[2] != 0);
+    szOld[3] = 0;
+    TEST(wcscmp(szNew, szOld) == 0);
+    TEST(szNew[3] == 0);
+    TEST(szNew[4] == 0);
+    TEST(szNew[5] == 0);
 
     /* Set invalid Wallpaper */
     SetLastError(0xdeadbeef);
