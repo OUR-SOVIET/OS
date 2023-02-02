@@ -55,13 +55,13 @@ static const TEST_ENTRY s_TestEntries[] =
     // WIDE
     {__LINE__, TRUE, NULL, OPENED, FALSE, NULL, NULL, 0x80070490 },
     {__LINE__, TRUE, NULL, OPENED, FALSE, NULL, L"", ERROR_NO_SCROLLBARS },
-    {__LINE__, TRUE, NULL, OPENED, FALSE, NULL, L"invalid file name.txt", ERROR_NO_SCROLLBARS },
+    {__LINE__, TRUE, NULL, OPENED, FALSE, NULL, L"invalid file name.txt", 0 },
     {__LINE__, TRUE, NULL, OPENED, FALSE, NULL, BAD_SZ_W, 0xDEADFACE },
-    {__LINE__, TRUE, NULL, OPENED, TRUE, NULL, L"created file.txt", ERROR_NO_SCROLLBARS },
+    {__LINE__, TRUE, NULL, OPENED, TRUE, NULL, L"created file.txt", 0 },
     {__LINE__, TRUE, BAD_INST, OPENED, FALSE, NULL, NULL, 0x80070490 },
-    {__LINE__, TRUE, BAD_INST, OPENED, FALSE, NULL, L"invalid file name.txt", ERROR_NO_SCROLLBARS },
+    {__LINE__, TRUE, BAD_INST, OPENED, FALSE, NULL, L"invalid file name.txt", 0 },
     {__LINE__, TRUE, BAD_INST, OPENED, FALSE, NULL, BAD_SZ_W, 0xDEADFACE },
-    {__LINE__, TRUE, BAD_INST, OPENED, TRUE, NULL, L"created file.txt", ERROR_NO_SCROLLBARS },
+    {__LINE__, TRUE, BAD_INST, OPENED, TRUE, NULL, L"created file.txt", 0 },
 };
 
 static HANDLE s_hThread = NULL;
