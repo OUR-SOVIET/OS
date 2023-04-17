@@ -163,11 +163,6 @@ InitVideo(VOID)
     if (gbBaseVideo)
         ERR("VGA mode requested.\n");
 
-    /* Initialize all display devices */
-    Status = EngpUpdateGraphicsDeviceList();
-    if (!NT_SUCCESS(Status))
-        return Status;
-
     InitSysParams();
 
     return STATUS_SUCCESS;
