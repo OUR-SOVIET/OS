@@ -1,6 +1,6 @@
 <p align=center>
   <a href="https://os.huang2.cn">
-    <img alt="ReactOS" src="https://os.huang2.cn/images/logo.png">
+    <img alt="ReactOS" src="https://dl3.img.timecdn.cn/2023/04/29/logo.png">
   </a>
 </p>
 
@@ -9,7 +9,6 @@
 
 # ROSBE安装：
 <img src="https://dl3.img.timecdn.cn/2023/04/21/SVR9NAGVKBA9_U7V.png">
-https://dl3.img.timecdn.cn/2023/04/21/SVR9NAGVKBA9_U7V.png 
 
 ### （注:图片中此位置为源码目录，下载后源码解压位置应相符）
 
