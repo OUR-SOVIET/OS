@@ -27,19 +27,19 @@ ninja bootcd或ninja livecd或ninja hybridcd
 # 编译：
 
 ## 安装界面          
-               第一部分安装界面         boot目录下bootcd,bcd,bgfx
-               第二部分安装界面         reactos\dll\win32\syssetup\          
-               第二部分安装界面         base\setup\       
+第一部分安装界面         boot目录下bootcd,bcd,bgfx
+第二部分安装界面         reactos\dll\win32\syssetup\          
+第二部分安装界面         base\setup\       
 
 ## 蜘蛛纸牌          
-               reactos\dll\win32\cards\res
+reactos\dll\win32\cards\res
 
 ## 主题UI           
-               reactos\media
+reactos\media
 
 ## 系统自带壁纸         
-               modules\wallpapers           须全部由UI部修改
+modules\wallpapers           须全部由UI部修改
 
-# base\目录下的系统自带软件：ico文件替换需保持原尺寸大小，否则在编译后进入系统图标会无法显示
+## base\目录下的系统自带软件：ico文件替换需保持原尺寸大小，否则在编译后进入系统图标会无法显示
 
-# //所有bmp,png.ico文件替换必须保持原尺寸大小，否则在编译后进入系统图标会无法显示或异常
+## //所有bmp,png.ico文件替换必须保持原尺寸大小，否则在编译后进入系统图标会无法显示或异常
