@@ -23,7 +23,7 @@ cd output-MinGW-i386
 make
 
 ninja bootcd或ninja livecd或ninja hybridcd
-
+-----
 # 编译：
 
 ## 安装界面          
